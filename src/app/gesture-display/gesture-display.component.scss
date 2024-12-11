@@ -1,0 +1,22 @@
+.gesture-container {
+  padding: 1rem;
+  
+  .card {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .gesture-content {
+    padding: 1rem 0;
+  }
+
+  .gesture-emoji {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gesture-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+} 

@@ -14,13 +14,22 @@
              autoplay 
              playsinline 
              width="640" 
-             height="480">
+             height="480"
+             style="transform: scaleX(-1);">
       </video>
       <canvas #canvas 
               width="640" 
               height="480" 
               class="border">
       </canvas>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <app-coordinates-display></app-coordinates-display>
+    </div>
+    <div class="col-md-6">
+      <app-gesture-display [currentGesture]="currentGesture"></app-gesture-display>
     </div>
   </div>
 </div>

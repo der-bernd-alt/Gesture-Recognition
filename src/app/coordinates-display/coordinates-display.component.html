@@ -1,0 +1,14 @@
+<div class="coordinates-container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Hand Coordinates</h5>
+      <div *ngIf="coordinates; else noHand">
+        <p class="mb-1">X: {{ coordinates.x.toFixed(2) }}</p>
+        <p class="mb-1">Y: {{ coordinates.y.toFixed(2) }}</p>
+      </div>
+      <ng-template #noHand>
+        <p class="text-muted">No hand detected</p>
+      </ng-template>
+    </div>
+  </div>
+</div> 
