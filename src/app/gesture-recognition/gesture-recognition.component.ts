@@ -118,19 +118,26 @@ export class GestureRecognitionComponent implements OnInit {
         // Update service with landmarks
         this.gestureService.updateLandmarks(keypoints);
 
+        // Calculate scaling factors
+        const scaleX = 1920 / 640;
+        const scaleY = 1080 / 480;
+
         // Draw landmarks
         keypoints.forEach((keypoint: any) => {
+          const scaledX = keypoint.x * scaleX;
+          const scaledY = keypoint.y * scaleY;
           this.ctx.beginPath();
-          this.ctx.arc(keypoint.x, keypoint.y, 5, 0, 2 * Math.PI);
+          this.ctx.arc(scaledX, scaledY, 5, 0, 2 * Math.PI);
           this.ctx.fillStyle = 'red';
           this.ctx.fill();
         });
 
         // Connect keypoints
         this.ctx.beginPath();
-        this.ctx.moveTo(keypoints[0].x, keypoints[0].y);
+        const firstPoint = keypoints[0];
+        this.ctx.moveTo(firstPoint.x * scaleX, firstPoint.y * scaleY);
         keypoints.forEach((keypoint: any) => {
-          this.ctx.lineTo(keypoint.x, keypoint.y);
+          this.ctx.lineTo(keypoint.x * scaleX, keypoint.y * scaleY);
         });
         this.ctx.strokeStyle = 'blue';
         this.ctx.lineWidth = 2;

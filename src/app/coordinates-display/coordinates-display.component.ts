@@ -12,11 +12,11 @@ import { GestureService, Coordinate } from '../services/gesture.service';
 export class CoordinatesDisplayComponent implements OnInit {
   coordinates: Coordinate | null | undefined = null;
 
-  constructor(private gestureService: GestureService) {}
+  constructor(private gestureService: GestureService) { }
 
   ngOnInit() {
     this.gestureService.pointerCoordinates$.subscribe(coords => {
-      this.coordinates = coords?.relative;
+      this.coordinates = coords
     });
   }
-} 
+}
